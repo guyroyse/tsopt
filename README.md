@@ -45,17 +45,25 @@ const none = Optional.empty<number>()
 const maybe = Optional.ofNullable<number>(nullishOrNumber)
 ```
 
-Once you have an Optional, you can can really only do three things with it: check if there is a value, get the value, or get the value with a default.
+Once you have an Optional, you have a few choices:
 
 ```typescript
-// returns false if value is null, otherwise true
+// check if it is null or not
 const status = maybe.isPresent() ? 'it there' : 'it null'
+const status = maybe.isEmpty() ? 'it null' : 'it there'
 
 // gets the value, throws an exception if null
 const value = maybe.get()
 
 // gets the value, providing a default if it is null
 const value = maybe.orElse(23)
+
+// gets the value, throwing a specific exception if it is null
+const value = maybe.orElseThrow(new MyError())
+
+// call a function if it is null or not
+maybe.ifPresent(() => console.log('it there'))
+maybe.ifEmpty(() => console.log('it null'))
 ```
 
 ## Contributing

@@ -18,6 +18,10 @@ export default class Optional<T> {
     return this.value !== null
   }
 
+  public isEmpty(): boolean {
+    return this.value === null
+  }
+
   public get(): T {
     if (this.value !== null) return this.value
     throw new Error('No value present')
@@ -25,6 +29,19 @@ export default class Optional<T> {
 
   public orElse(other: T): T {
     return this.value === null ? other : this.value
+  }
+
+  public orElseThrow(error: Error): T {
+    if (this.value !== null) return this.value
+    throw error
+  }
+
+  public ifPresent(callback: (value: T) => void): void {
+    if (this.value !== null) callback(this.value)
+  }
+
+  public ifEmpty(callback: () => void): void {
+    if (this.value === null) callback()
   }
 
   private static isNullish<T>(value: T | null | undefined): boolean {
