@@ -4,13 +4,13 @@ _Functional_ changes to the public interface will be listed here, by version. _N
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this library adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## 0.1.0 - 2024-09-13
+## 1.0.0 - 2024-09-13
 
 ### Added
 
 - Created optional type
 
-## 0.2.0 - 2025-08-17
+## 1.1.0 - 2025-08-17
 
 ### Updated
 
